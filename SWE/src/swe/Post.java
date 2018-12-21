@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Post {
     int post_id;
-    public Item post_details;
+    public Item post_details= new Item();
     void setid(){
         ArrayList<Post>posts=new ArrayList<>();
         post_id =posts.size();

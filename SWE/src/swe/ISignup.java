@@ -5,6 +5,7 @@
  */
 package swe;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 /**
@@ -21,6 +22,8 @@ public class ISignup extends javax.swing.JFrame {
         email_label.setVisible(false);
         phone_label.setVisible(false);
         pass_label.setVisible(false); 
+        pass.setEchoChar((char)0);
+        pass2.setEchoChar((char)0);
         name_label.setVisible(false);
              
     }
@@ -55,7 +58,8 @@ public class ISignup extends javax.swing.JFrame {
             }
         });
 
-        name.setText("name");
+        name.setForeground(new java.awt.Color(204, 204, 255));
+        name.setText("Name...");
         name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 nameFocusGained(evt);
@@ -70,6 +74,8 @@ public class ISignup extends javax.swing.JFrame {
             }
         });
 
+        email.setForeground(new java.awt.Color(204, 204, 250));
+        email.setText("Example@example.com");
         email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 emailFocusGained(evt);
@@ -84,6 +90,8 @@ public class ISignup extends javax.swing.JFrame {
             }
         });
 
+        num.setForeground(new java.awt.Color(204, 204, 255));
+        num.setText("Phone number...");
         num.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 numFocusGained(evt);
@@ -114,7 +122,8 @@ public class ISignup extends javax.swing.JFrame {
             }
         });
 
-        pass2.setText("jPasswordField1");
+        pass2.setForeground(new java.awt.Color(204, 204, 250));
+        pass2.setText("Confirm password...");
         pass2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pass2FocusGained(evt);
@@ -123,8 +132,27 @@ public class ISignup extends javax.swing.JFrame {
                 pass2FocusLost(evt);
             }
         });
+        pass2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pass2ActionPerformed(evt);
+            }
+        });
 
-        pass.setText("jPasswordField2");
+        pass.setForeground(new java.awt.Color(204, 204, 250));
+        pass.setText("Password...");
+        pass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passFocusLost(evt);
+            }
+        });
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
 
         name_label.setForeground(new java.awt.Color(255, 51, 51));
         name_label.setText("please enter a name");
@@ -134,28 +162,23 @@ public class ISignup extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submit))))
-                .addGap(38, 38, 38)
+                .addGap(119, 119, 119)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pass2)
+                        .addComponent(name)
+                        .addComponent(pass)
+                        .addComponent(email)
+                        .addComponent(num)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pass_label)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(email_label)
-                        .addComponent(phone_label))
+                    .addComponent(phone_label)
                     .addComponent(check)
-                    .addComponent(name_label))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(name_label)
+                    .addComponent(email_label))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,21 +191,25 @@ public class ISignup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(check))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email_label)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addComponent(pass_label, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email_label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phone_label))
-                .addGap(48, 48, 48)
+                .addGap(57, 57, 57)
                 .addComponent(submit)
-                .addGap(62, 62, 62))
+                .addGap(114, 114, 114))
         );
 
         pack();
@@ -209,7 +236,12 @@ public class ISignup extends javax.swing.JFrame {
     }//GEN-LAST:event_submitActionPerformed
 
     private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
-       int cnt=0;
+        if(email.getText().equals(""))
+        {
+            email.setText("Example@example.com");
+            email.setForeground(new Color(204,204,250));
+        }
+        int cnt=0;
         int idxdot=0;
         int idxat=0;
         for(int i=0;i< email.getText().length();i++)
@@ -239,6 +271,11 @@ public class ISignup extends javax.swing.JFrame {
     private void emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusGained
         // TODO add your handling code here:
         email_label.setVisible(false);
+        if(email.getText().equals("Example@example.com"))
+        {
+            email.setText("");
+            email.setForeground(Color.black);
+        }
     }//GEN-LAST:event_emailFocusGained
 
     private void numFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numFocusLost
@@ -247,10 +284,20 @@ public class ISignup extends javax.swing.JFrame {
         {
             phone_label.setVisible(true);
         }
+        if(num.getText().equals(""))
+        {
+            num.setText("Phone number...");
+            num.setForeground(new Color(204,204,250));
+        }
     }//GEN-LAST:event_numFocusLost
 
     private void numFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numFocusGained
         phone_label.setVisible(false);
+        if(num.getText().equals("Phone number..."))
+        {
+            num.setText("");
+            num.setForeground(Color.black);
+        }
     }//GEN-LAST:event_numFocusGained
 
     private void numKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numKeyTyped
@@ -275,25 +322,73 @@ public class ISignup extends javax.swing.JFrame {
     private void pass2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pass2FocusLost
         if(!pass2.getText().equals(pass.getText()))
             pass_label.setVisible(true);
+        if(pass2.getText().equals(""))
+        {
+            pass2.setEchoChar((char)0);
+            pass2.setText("Confirm password...");
+            pass2.setForeground(new Color(204,204,255));
+        }
     }//GEN-LAST:event_pass2FocusLost
 
     private void pass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pass2FocusGained
         // TODO add your handling code here:
         pass_label.setVisible(false);
+        if(pass2.getText().equals("Confirm password..."))
+        {
+            pass2.setEchoChar('*');
+            pass2.setText("");
+            pass2.setForeground(Color.black);
+        }
     }//GEN-LAST:event_pass2FocusGained
 
     private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
         if(name.getText().equals(""))
+        {
+            name.setForeground(new Color(204,204,255));
+            name.setText("Name...");
             name_label.setVisible(true);
+            
+        }
     }//GEN-LAST:event_nameFocusLost
 
     private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
         name_label.setVisible(false);
+        if(name.getText().equals("Name..."))
+        {
+            name.setText("");
+            name.setForeground(Color.black);
+        }
     }//GEN-LAST:event_nameFocusGained
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
+
+    private void passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusGained
+        if(pass.getText().equals("Password..."))
+        {
+            pass.setEchoChar('*');
+            pass.setText("");
+            pass.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_passFocusGained
+
+    private void passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusLost
+        if(pass.getText().equals(""))
+        {
+            pass.setEchoChar((char)0);
+            pass.setText("Password...");
+            pass.setForeground(new Color(204,204,255));
+        }
+    }//GEN-LAST:event_passFocusLost
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
+
+    private void pass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pass2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
