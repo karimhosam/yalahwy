@@ -28,6 +28,13 @@ public class IPost extends javax.swing.JFrame {
     File f=null;
     public IPost() {
         initComponents();
+         name.setBackground(new Color(0,0,0,80));
+         photodic.setBackground(new Color(0,0,0,80));
+         finddate.setBackground(new Color(0,0,0,80));
+         question.setBackground(new Color(0,0,0,80));
+         ans1.setBackground(new Color(0,0,0,80));
+         ans2.setBackground(new Color(0,0,0,80));
+         ans3.setBackground(new Color(0,0,0,80));
         name_label.setVisible(false);
         pic_label.setVisible(false);
         date_label.setVisible(false);
@@ -68,12 +75,24 @@ public class IPost extends javax.swing.JFrame {
         answer2 = new javax.swing.JLabel();
         submit1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YALAHWY.exe");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        name.setForeground(new java.awt.Color(153, 153, 153));
+        name.setBackground(new java.awt.Color(0, 0, 0));
+        name.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(255, 255, 255));
         name.setText("Enter Name");
         name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -83,17 +102,27 @@ public class IPost extends javax.swing.JFrame {
                 nameFocusLost(evt);
             }
         });
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 340, 40));
 
-        cat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cat.setBackground(new java.awt.Color(51, 51, 51));
+        cat.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         cat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mobiles", "Keys", "Wallets", "Accsesories", "Others" }));
+        getContentPane().add(cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 340, 40));
 
-        picdic.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        picdic.setBackground(new java.awt.Color(255, 153, 51));
+        picdic.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         picdic.setText("browse");
         picdic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 picdicActionPerformed(evt);
             }
         });
+        getContentPane().add(picdic, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 40));
 
         photodic.setEditable(false);
         photodic.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +130,9 @@ public class IPost extends javax.swing.JFrame {
                 photodicActionPerformed(evt);
             }
         });
+        getContentPane().add(photodic, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 250, 40));
 
+        finddate.setBackground(new java.awt.Color(51, 51, 51));
         finddate.setDateFormatString("dd/MM/yyyy");
         finddate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         finddate.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -125,28 +156,36 @@ public class IPost extends javax.swing.JFrame {
                 finddateMouseEntered(evt);
             }
         });
+        getContentPane().add(finddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 340, 40));
 
+        submit.setBackground(new java.awt.Color(255, 153, 0));
+        submit.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         submit.setText("submit");
+        submit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitActionPerformed(evt);
             }
         });
+        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, 130, 30));
 
         name_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         name_label.setForeground(new java.awt.Color(255, 51, 51));
         name_label.setText("please enter a name");
+        getContentPane().add(name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, 40));
 
         pic_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pic_label.setForeground(new java.awt.Color(255, 51, 51));
         pic_label.setText("please enter a photo");
+        getContentPane().add(pic_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, -1, -1));
 
         date_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         date_label.setForeground(new java.awt.Color(255, 51, 51));
         date_label.setText("please pick a date");
+        getContentPane().add(date_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
 
         question.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        question.setForeground(new java.awt.Color(153, 153, 153));
+        question.setForeground(new java.awt.Color(255, 255, 255));
         question.setText("Enter a Question");
         question.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -156,6 +195,7 @@ public class IPost extends javax.swing.JFrame {
                 questionFocusLost(evt);
             }
         });
+        getContentPane().add(question, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 340, 40));
 
         ans1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ans1.setForeground(new java.awt.Color(153, 153, 153));
@@ -168,6 +208,7 @@ public class IPost extends javax.swing.JFrame {
                 ans1FocusLost(evt);
             }
         });
+        getContentPane().add(ans1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 340, 40));
 
         ans2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ans2.setForeground(new java.awt.Color(153, 153, 153));
@@ -180,6 +221,7 @@ public class IPost extends javax.swing.JFrame {
                 ans2FocusLost(evt);
             }
         });
+        getContentPane().add(ans2, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 490, 340, 40));
 
         ans3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ans3.setForeground(new java.awt.Color(153, 153, 153));
@@ -192,132 +234,90 @@ public class IPost extends javax.swing.JFrame {
                 ans3FocusLost(evt);
             }
         });
+        getContentPane().add(ans3, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 550, 340, 40));
 
         question_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         question_label.setForeground(new java.awt.Color(255, 51, 51));
         question_label.setText("please enter a Question");
+        getContentPane().add(question_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
 
         answer1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         answer1.setForeground(new java.awt.Color(255, 51, 51));
         answer1.setText("please enter an answer");
+        getContentPane().add(answer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, -1, -1));
 
         answer3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         answer3.setForeground(new java.awt.Color(255, 51, 51));
         answer3.setText("please enter an answer");
+        getContentPane().add(answer3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, -1, -1));
 
         answer2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         answer2.setForeground(new java.awt.Color(255, 51, 51));
         answer2.setText("please enter an answer");
+        getContentPane().add(answer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, -1, -1));
 
+        submit1.setBackground(new java.awt.Color(255, 153, 0));
+        submit1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         submit1.setText("back");
+        submit1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         submit1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit1ActionPerformed(evt);
             }
         });
+        getContentPane().add(submit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, 150, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jButton1.setText("Add Question");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 200, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(submit1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(picdic)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(photodic, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
-                                    .addComponent(cat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(name_label)
-                                    .addComponent(pic_label)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(question, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ans3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ans2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ans1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(question_label))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(answer1)
-                                            .addComponent(date_label)
-                                            .addComponent(answer3)
-                                            .addComponent(answer2))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pic_label)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(picdic)
-                            .addComponent(photodic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(question_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ans1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ans2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ans3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(answer3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submit)
-                    .addComponent(submit1)
-                    .addComponent(jButton1))
-                .addContainerGap())
-        );
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 50)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel2.setText("Make a Post ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 510, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1rsz_orangprofile.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 50, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_open-in-browser-icon-11-256.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 50, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_icon_camera.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 50, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_7_calendar_date_year_event_schedule_link_holiday-512.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 50, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_question-circle-orange-2-512.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz__right_icon_1208790.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 50, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_538357-wrong_512x512.png"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 484, 50, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_538357-wrong_512x512.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 50, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/ui-ux-banner.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -382,7 +382,7 @@ public class IPost extends javax.swing.JFrame {
         name_label.setVisible(false);
         if (name.getText().equals("Enter Name")){
             name.setText("");
-            name.setForeground(Color.black);
+            name.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_nameFocusGained
 
@@ -410,7 +410,7 @@ public class IPost extends javax.swing.JFrame {
         question_label.setVisible(false);
         if (question.getText().equals("Enter a Question")){
             question.setText("");
-            question.setForeground(Color.BLACK);
+            question.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_questionFocusGained
 
@@ -426,7 +426,7 @@ public class IPost extends javax.swing.JFrame {
         answer1.setVisible(false);
         if (ans1.getText().equals("Enter The Right Answer")){
             ans1.setText("");
-            ans1.setForeground(Color.BLACK);
+            ans1.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_ans1FocusGained
 
@@ -442,7 +442,7 @@ public class IPost extends javax.swing.JFrame {
         answer2.setVisible(false);
         if (ans2.getText().equals("Enter a Wrong Answer")){
             ans2.setText("");
-            ans2.setForeground(Color.BLACK);
+            ans2.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_ans2FocusGained
 
@@ -458,7 +458,7 @@ public class IPost extends javax.swing.JFrame {
        answer3.setVisible(false);
         if (ans3.getText().equals("Enter a Wrong Answer")){
             ans3.setText("");
-            ans3.setForeground(Color.BLACK);
+            ans3.setForeground(Color.WHITE);
         }
     }//GEN-LAST:event_ans3FocusGained
 
@@ -471,7 +471,9 @@ public class IPost extends javax.swing.JFrame {
     }//GEN-LAST:event_ans3FocusLost
 
     private void submit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit1ActionPerformed
-        
+        chooserfram next = new chooserfram();
+        next.show();
+        this.dispose();
     }//GEN-LAST:event_submit1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -496,6 +498,10 @@ public class IPost extends javax.swing.JFrame {
             ans3.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,6 +549,16 @@ public class IPost extends javax.swing.JFrame {
     private javax.swing.JLabel date_label;
     private com.toedter.calendar.JDateChooser finddate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField name;
     private javax.swing.JLabel name_label;
     private javax.swing.JTextField photodic;

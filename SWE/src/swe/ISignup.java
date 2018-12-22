@@ -74,9 +74,9 @@ public class ISignup extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YALAHWY.exe");
         setPreferredSize(new java.awt.Dimension(810, 650));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        submit.setBackground(new java.awt.Color(0, 0, 0));
+        submit.setBackground(new java.awt.Color(255, 153, 51));
         submit.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         submit.setText("Sign Up");
         submit.addActionListener(new java.awt.event.ActionListener() {
@@ -84,8 +84,7 @@ public class ISignup extends javax.swing.JFrame {
                 submitActionPerformed(evt);
             }
         });
-        getContentPane().add(submit);
-        submit.setBounds(130, 520, 240, 40);
+        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 240, 40));
 
         name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         name.setForeground(new java.awt.Color(153, 153, 153));
@@ -103,8 +102,7 @@ public class ISignup extends javax.swing.JFrame {
                 nameActionPerformed(evt);
             }
         });
-        getContentPane().add(name);
-        name.setBounds(210, 140, 340, 40);
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 340, 40));
 
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         email.setForeground(new java.awt.Color(153, 153, 153));
@@ -122,8 +120,7 @@ public class ISignup extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        getContentPane().add(email);
-        email.setBounds(210, 210, 340, 40);
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 340, 40));
 
         num.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         num.setForeground(new java.awt.Color(153, 153, 153));
@@ -146,37 +143,32 @@ public class ISignup extends javax.swing.JFrame {
                 numKeyTyped(evt);
             }
         });
-        getContentPane().add(num);
-        num.setBounds(210, 420, 340, 40);
+        getContentPane().add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 340, 40));
 
         phone_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         phone_label.setForeground(new java.awt.Color(255, 51, 51));
         phone_label.setText("wrong number");
-        getContentPane().add(phone_label);
-        phone_label.setBounds(570, 420, 100, 30);
+        getContentPane().add(phone_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 100, 30));
 
         name_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         name_label.setForeground(new java.awt.Color(255, 51, 51));
         name_label.setText("Enter a Name");
-        getContentPane().add(name_label);
-        name_label.setBounds(580, 140, 100, 40);
+        getContentPane().add(name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 100, 40));
 
         check.setFont(new java.awt.Font("Yu Gothic UI", 3, 14)); // NOI18N
-        check.setForeground(new java.awt.Color(255, 255, 255));
+        check.setForeground(new java.awt.Color(255, 153, 0));
         check.setText("show password");
         check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkActionPerformed(evt);
             }
         });
-        getContentPane().add(check);
-        check.setBounds(580, 280, 130, 40);
+        getContentPane().add(check, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 130, 40));
 
         pass_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pass_label.setForeground(new java.awt.Color(255, 0, 51));
         pass_label.setText("password does not match");
-        getContentPane().add(pass_label);
-        pass_label.setBounds(570, 350, 170, 30);
+        getContentPane().add(pass_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 170, 30));
 
         pass2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pass2.setForeground(new java.awt.Color(153, 153, 153));
@@ -194,8 +186,7 @@ public class ISignup extends javax.swing.JFrame {
                 pass2ActionPerformed(evt);
             }
         });
-        getContentPane().add(pass2);
-        pass2.setBounds(210, 350, 340, 40);
+        getContentPane().add(pass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 340, 40));
 
         pass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pass.setForeground(new java.awt.Color(153, 153, 153));
@@ -208,79 +199,67 @@ public class ISignup extends javax.swing.JFrame {
                 passFocusLost(evt);
             }
         });
-        getContentPane().add(pass);
-        pass.setBounds(210, 280, 340, 40);
+        getContentPane().add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 340, 40));
 
         name_label1.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
-        name_label1.setForeground(new java.awt.Color(204, 204, 204));
+        name_label1.setForeground(new java.awt.Color(255, 153, 0));
         name_label1.setText("Name :");
-        getContentPane().add(name_label1);
-        name_label1.setBounds(210, 120, 110, 20);
+        getContentPane().add(name_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 110, 20));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 3, 50)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Create Account");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(190, 0, 560, 80);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 560, 80));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/1.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1rsz_orangprofile.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(150, 140, 50, 40);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 50, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/5.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangemail.png"))); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(150, 210, 50, 40);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 50, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/3.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangepass.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(150, 280, 50, 40);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 50, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/4.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangepass.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(150, 350, 50, 40);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 50, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_2telephone_55698.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangetelephone.png"))); // NOI18N
         jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(150, 420, 50, 40);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 50, -1));
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setForeground(new java.awt.Color(255, 153, 0));
         jLabel8.setText("Password :");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(210, 260, 100, 15);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 100, -1));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setForeground(new java.awt.Color(255, 153, 0));
         jLabel9.setText("Confirmation :");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(210, 330, 90, 15);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 90, -1));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setForeground(new java.awt.Color(255, 153, 0));
         jLabel10.setText("Email :");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(210, 190, 50, 15);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 50, -1));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel11.setForeground(new java.awt.Color(255, 153, 0));
         jLabel11.setText("Number :");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(210, 400, 70, 15);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 70, -1));
 
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 153, 0));
         jLabel12.setText("Please Fill in this Form to Create an Account !");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(250, 80, 450, 16);
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 450, -1));
 
         email_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         email_label.setForeground(new java.awt.Color(255, 51, 51));
         email_label.setText("wrong email");
-        getContentPane().add(email_label);
-        email_label.setBounds(580, 200, 100, 40);
+        getContentPane().add(email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 100, 40));
 
         back.setBackground(new java.awt.Color(0, 0, 0));
         back.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
@@ -290,14 +269,12 @@ public class ISignup extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back);
-        back.setBounds(430, 520, 240, 40);
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 240, 40));
 
-        background.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        background.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         background.setForeground(new java.awt.Color(204, 204, 204));
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_background1.jpg"))); // NOI18N
-        getContentPane().add(background);
-        background.setBounds(-10, -10, 820, 650);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/signupbackground.jpg"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, -1, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

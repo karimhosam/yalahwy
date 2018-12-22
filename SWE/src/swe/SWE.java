@@ -39,7 +39,6 @@ public class SWE {
             po.post_details.setcategory(parts[1]);
             po.post_details.setphoto(parts[2]);
             date=format.parse(parts[3]);
-            System.out.println(date);
             po.post_details.setdate(date);
             po.founder=parts[4];
             for(int x=5;x<parts.length;x+=4)
