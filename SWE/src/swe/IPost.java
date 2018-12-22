@@ -6,6 +6,7 @@
 package swe;
 
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.Color;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -20,13 +21,17 @@ public class IPost extends javax.swing.JFrame {
      * Creates new form IPost
      */
     SWE main=new SWE();
+    Post post=new Post();
     File f=null;
     public IPost() {
         initComponents();
-        finddate.setDateFormatString("dd/MM/yy");
         name_label.setVisible(false);
         pic_label.setVisible(false);
         date_label.setVisible(false);
+        question_label.setVisible(false);
+        answer1.setVisible(false);
+        answer2.setVisible(false);
+        answer3.setVisible(false);
         JTextFieldDateEditor editor = (JTextFieldDateEditor) finddate.getDateEditor();
         editor.setEditable(false);
         
@@ -50,10 +55,23 @@ public class IPost extends javax.swing.JFrame {
         name_label = new javax.swing.JLabel();
         pic_label = new javax.swing.JLabel();
         date_label = new javax.swing.JLabel();
+        question = new javax.swing.JTextField();
+        ans1 = new javax.swing.JTextField();
+        ans2 = new javax.swing.JTextField();
+        ans3 = new javax.swing.JTextField();
+        question_label = new javax.swing.JLabel();
+        answer1 = new javax.swing.JLabel();
+        answer3 = new javax.swing.JLabel();
+        answer2 = new javax.swing.JLabel();
+        submit1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("YALAHWY.exe");
 
-        name.setText("name");
+        name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(153, 153, 153));
+        name.setText("Enter Name");
         name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 nameFocusGained(evt);
@@ -63,8 +81,10 @@ public class IPost extends javax.swing.JFrame {
             }
         });
 
+        cat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mobiles", "Keys", "Wallets", "Accsesories", "Others" }));
 
+        picdic.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         picdic.setText("browse");
         picdic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +99,8 @@ public class IPost extends javax.swing.JFrame {
             }
         });
 
+        finddate.setDateFormatString("dd/MM/yyyy");
+        finddate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         finddate.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 finddateComponentAdded(evt);
@@ -108,14 +130,95 @@ public class IPost extends javax.swing.JFrame {
             }
         });
 
+        name_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         name_label.setForeground(new java.awt.Color(255, 51, 51));
         name_label.setText("please enter a name");
 
+        pic_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pic_label.setForeground(new java.awt.Color(255, 51, 51));
         pic_label.setText("please enter a photo");
 
+        date_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         date_label.setForeground(new java.awt.Color(255, 51, 51));
         date_label.setText("please pick a date");
+
+        question.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        question.setForeground(new java.awt.Color(153, 153, 153));
+        question.setText("Enter a Question");
+        question.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                questionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                questionFocusLost(evt);
+            }
+        });
+
+        ans1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ans1.setForeground(new java.awt.Color(153, 153, 153));
+        ans1.setText("Enter The Right Answer");
+        ans1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ans1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ans1FocusLost(evt);
+            }
+        });
+
+        ans2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ans2.setForeground(new java.awt.Color(153, 153, 153));
+        ans2.setText("Enter a Wrong Answer");
+        ans2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ans2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ans2FocusLost(evt);
+            }
+        });
+
+        ans3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ans3.setForeground(new java.awt.Color(153, 153, 153));
+        ans3.setText("Enter a Wrong Answer");
+        ans3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ans3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ans3FocusLost(evt);
+            }
+        });
+
+        question_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        question_label.setForeground(new java.awt.Color(255, 51, 51));
+        question_label.setText("please enter a Question");
+
+        answer1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        answer1.setForeground(new java.awt.Color(255, 51, 51));
+        answer1.setText("please enter an answer");
+
+        answer3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        answer3.setForeground(new java.awt.Color(255, 51, 51));
+        answer3.setText("please enter an answer");
+
+        answer2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        answer2.setForeground(new java.awt.Color(255, 51, 51));
+        answer2.setText("please enter an answer");
+
+        submit1.setText("back");
+        submit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Add Question");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,23 +226,49 @@ public class IPost extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(submit)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(finddate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(photodic, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(name)
-                                .addComponent(picdic, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name_label)
-                    .addComponent(pic_label)
-                    .addComponent(date_label))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(submit1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(picdic)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(photodic, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                                    .addComponent(cat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(name_label)
+                                    .addComponent(pic_label)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(question, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ans3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ans2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ans1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(question_label))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(answer1)
+                                            .addComponent(date_label)
+                                            .addComponent(answer3)
+                                            .addComponent(answer2))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,18 +280,40 @@ public class IPost extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(pic_label)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(picdic)
-                            .addComponent(photodic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pic_label))
-                        .addGap(18, 18, 18)
-                        .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(photodic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(date_label))
-                .addGap(31, 31, 31)
-                .addComponent(submit)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(question_label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ans1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ans2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ans3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(answer3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submit)
+                    .addComponent(submit1)
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
@@ -173,8 +324,12 @@ public class IPost extends javax.swing.JFrame {
         
         if(pic.showOpenDialog(null)==0)
         {
+            pic_label.setVisible(false);
             f=pic.getSelectedFile();
             photodic.setText(f.toString());
+        }
+        else {
+            pic_label.setVisible(true);
         }
     }//GEN-LAST:event_picdicActionPerformed
 
@@ -187,27 +342,38 @@ public class IPost extends javax.swing.JFrame {
             date_label.setVisible(true);
         else
             date_label.setVisible(false);
-        if(name_label.isVisible()||pic_label.isVisible()||date_label.isVisible())
+        if(name_label.isVisible()||picdic.getText().equals("")||date_label.isVisible()||question.getText().equals("Enter a Question")||
+                ans1.getText().equals("Enter The Right Answer")||ans2.getText().equals("Enter a Wrong Answer")
+                ||ans3.getText().equals("Enter a Wrong Answer")||post.post_details.detalis.size()==0)
         {
             JOptionPane.showMessageDialog(null, "there is somthing wrong", "Error",JOptionPane.ERROR_MESSAGE);
         }
         else
         {
-            Post post=new Post();
+            post.setid();
             post.post_details.setname(name.getText());
             post.post_details.setdate(finddate.getDate());
             post.post_details.setcategory((String) cat.getSelectedItem());
             post.post_details.setphoto(f.toString());
+            post.founder=main.logedin;
+            main.posts.add(post);
         }
     }//GEN-LAST:event_submitActionPerformed
 
     private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
-        if(name.getText().equals(""))
-            name_label.setVisible(true);        
+        if(name.getText().equals("")){
+            name_label.setVisible(true);
+            name.setText("Enter Name");
+            name.setForeground(new Color(153,153,153));
+        }
     }//GEN-LAST:event_nameFocusLost
 
     private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
-        name_label.setVisible(false);       
+        name_label.setVisible(false);
+        if (name.getText().equals("Enter Name")){
+            name.setText("");
+            name.setForeground(Color.black);
+        }
     }//GEN-LAST:event_nameFocusGained
 
     private void finddateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_finddateFocusGained
@@ -215,8 +381,7 @@ public class IPost extends javax.swing.JFrame {
     }//GEN-LAST:event_finddateFocusGained
 
     private void finddateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_finddateFocusLost
-        // TODO add your handling code here:
-        
+       
     }//GEN-LAST:event_finddateFocusLost
 
     private void finddateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finddateMouseClicked
@@ -224,12 +389,98 @@ public class IPost extends javax.swing.JFrame {
     }//GEN-LAST:event_finddateMouseClicked
 
     private void finddateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finddateMouseEntered
-      // TODO add your handling code here:
+  
     }//GEN-LAST:event_finddateMouseEntered
 
     private void finddateComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_finddateComponentAdded
 
     }//GEN-LAST:event_finddateComponentAdded
+
+    private void questionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_questionFocusGained
+        question_label.setVisible(false);
+        if (question.getText().equals("Enter a Question")){
+            question.setText("");
+            question.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_questionFocusGained
+
+    private void questionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_questionFocusLost
+        if (question.getText().equals("")){
+            question_label.setVisible(true);
+            question.setText("Enter a Question");
+            question.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_questionFocusLost
+
+    private void ans1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans1FocusGained
+        answer1.setVisible(false);
+        if (ans1.getText().equals("Enter The Right Answer")){
+            ans1.setText("");
+            ans1.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_ans1FocusGained
+
+    private void ans1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans1FocusLost
+        if (ans1.getText().equals("")){
+            answer1.setVisible(true);
+            ans1.setText("Enter The Right Answer");
+            ans1.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_ans1FocusLost
+
+    private void ans2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans2FocusGained
+        answer2.setVisible(false);
+        if (ans2.getText().equals("Enter a Wrong Answer")){
+            ans2.setText("");
+            ans2.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_ans2FocusGained
+
+    private void ans2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans2FocusLost
+         if (ans2.getText().equals("")){
+            answer2.setVisible(true);
+            ans2.setText("Enter a Wrong Answer");
+            ans2.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_ans2FocusLost
+
+    private void ans3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans3FocusGained
+       answer3.setVisible(false);
+        if (ans3.getText().equals("Enter a Wrong Answer")){
+            ans3.setText("");
+            ans3.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_ans3FocusGained
+
+    private void ans3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ans3FocusLost
+       if (ans3.getText().equals("")){
+            answer3.setVisible(true);
+            ans3.setText("Enter a Wrong Answer");
+            ans3.setForeground(new Color(153,153,153));
+       }
+    }//GEN-LAST:event_ans3FocusLost
+
+    private void submit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit1ActionPerformed
+        
+    }//GEN-LAST:event_submit1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(question.getText().equals("Enter a Question")||ans1.getText().equals("Enter The Right Answer")||ans2.getText().equals("Enter a Wrong Answer")
+                ||ans3.getText().equals("Enter a Wrong Answer"))
+        {
+            JOptionPane.showMessageDialog(this, "there is somthing wrong", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            Question q=new Question();
+            q.question=question.getText();
+            String []a=new String[3];
+            a[0]=ans1.getText();
+            a[01]=ans2.getText();
+            a[2]=ans3.getText();
+            q.setans(a);
+            post.post_details.detalis.add(q);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,14 +518,24 @@ public class IPost extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ans1;
+    private javax.swing.JTextField ans2;
+    private javax.swing.JTextField ans3;
+    private javax.swing.JLabel answer1;
+    private javax.swing.JLabel answer2;
+    private javax.swing.JLabel answer3;
     private javax.swing.JComboBox<String> cat;
     private javax.swing.JLabel date_label;
     private com.toedter.calendar.JDateChooser finddate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField name;
     private javax.swing.JLabel name_label;
     private javax.swing.JTextField photodic;
     private javax.swing.JLabel pic_label;
     private javax.swing.JButton picdic;
+    private javax.swing.JTextField question;
+    private javax.swing.JLabel question_label;
     private javax.swing.JButton submit;
+    private javax.swing.JButton submit1;
     // End of variables declaration//GEN-END:variables
 }

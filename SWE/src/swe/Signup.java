@@ -5,8 +5,6 @@
  */
 package swe;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author karim
@@ -14,9 +12,9 @@ import java.util.ArrayList;
 public class Signup {
     public static User user=new User();
     public Signup(){}
-    void setdata(ArrayList<User> S){S.add(user);};
-    public boolean checkvalid(ArrayList<User> s){
-        for(User i:s)
+    void setdata(){SWE.users.add(user);};
+    public boolean checkvalid(){
+        for(User i:SWE.users)
         {
             if((i.getemail().equals(user.getemail()))||i.getphone()==user.getphone())
                 return false;

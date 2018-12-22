@@ -6,6 +6,7 @@
 package swe;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,12 +17,11 @@ public class mainfram extends javax.swing.JFrame {
     /**
      * Creates new form mainfram
      */
+    SWE s=new SWE();
     public mainfram() {
         initComponents();
-        x.setBackground(new Color(0,0,0,80));
-        y.setBackground(new Color(0,0,0,80));
-        z.setBackground(new Color(0,0,0,80));
-        //h.setBackground(new Color(0,0,0,10));
+        password.setBackground(new Color(0,0,0,80));
+        name.setBackground(new Color(0,0,0,80));
         signup.setBackground(new Color(0,0,0,0));
     }
 
@@ -37,16 +37,15 @@ public class mainfram extends javax.swing.JFrame {
         h = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        y = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        z = new javax.swing.JCheckBox();
-        x = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         signup = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("YALAHWY.exe");
         setPreferredSize(new java.awt.Dimension(810, 530));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -56,6 +55,12 @@ public class mainfram extends javax.swing.JFrame {
         h.setForeground(new java.awt.Color(255, 255, 255));
         h.setText("LOGIN");
         h.setBorder(new javax.swing.border.MatteBorder(null));
+        h.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        h.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hActionPerformed(evt);
+            }
+        });
         getContentPane().add(h);
         h.setBounds(310, 370, 260, 40);
 
@@ -67,77 +72,99 @@ public class mainfram extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(350, 50, 160, 140);
 
-        y.setForeground(new java.awt.Color(204, 204, 204));
-        y.setText("Username");
-        y.addFocusListener(new java.awt.event.FocusAdapter() {
+        name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(204, 204, 204));
+        name.setText("Username");
+        name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                yFocusGained(evt);
+                nameFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                yFocusLost(evt);
+                nameFocusLost(evt);
             }
         });
-        getContentPane().add(y);
-        y.setBounds(270, 220, 360, 40);
+        getContentPane().add(name);
+        name.setBounds(270, 220, 360, 40);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1images.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(210, 220, 50, 40);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("forget your password ?");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(540, 320, 140, 20);
-
-        z.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        z.setForeground(new java.awt.Color(255, 255, 255));
-        z.setText("Remember Me");
-        getContentPane().add(z);
-        z.setBounds(210, 320, 120, 23);
-
-        x.setBackground(new java.awt.Color(0, 0, 0));
-        x.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        x.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(x);
-        x.setBounds(270, 270, 360, 40);
+        password.setBackground(new java.awt.Color(0, 0, 0));
+        password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        password.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(password);
+        password.setBounds(270, 270, 360, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText(" Don't have an account ?");
         jLabel4.setToolTipText("");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(280, 430, 510, 30);
+        jLabel4.setBounds(280, 430, 180, 30);
 
         signup.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         signup.setForeground(new java.awt.Color(255, 255, 255));
         signup.setText("Sign up Now !");
+        signup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        signup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupActionPerformed(evt);
+            }
+        });
         getContentPane().add(signup);
-        signup.setBounds(380, 430, 240, 30);
+        signup.setBounds(450, 430, 120, 30);
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/background1.jpg"))); // NOI18N
-        jLabel1.setText("forget your password ?");
-        jLabel1.setPreferredSize(new java.awt.Dimension(810, 530));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 810, 540);
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_background1.jpg"))); // NOI18N
+        back.setText("forget your password ?");
+        back.setPreferredSize(new java.awt.Dimension(810, 530));
+        getContentPane().add(back);
+        back.setBounds(0, 0, 810, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void yFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yFocusGained
-        if(y.getText().equals("Username")){
-            y.setText("");
-            y.setForeground(Color.WHITE);
+    private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
+        if(name.getText().equals("Username")){
+            name.setText("");
+            name.setForeground(Color.WHITE);
         }
-    }//GEN-LAST:event_yFocusGained
+    }//GEN-LAST:event_nameFocusGained
 
-    private void yFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yFocusLost
-        if(y.getText().equals("")){
-            y.setText("Username");
-            y.setForeground(new Color(204,204,204));
+    private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
+        if(name.getText().equals("")){
+            name.setText("Username");
+            name.setForeground(new Color(204,204,204));
         }
-    }//GEN-LAST:event_yFocusLost
+    }//GEN-LAST:event_nameFocusLost
+
+    private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+        ISignup next= new ISignup ();
+        next.show();
+        this.dispose();
+    }//GEN-LAST:event_signupActionPerformed
+
+    private void hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hActionPerformed
+        if(back.getText().equals("Username")||password.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "please enter username and password", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            for(User i:s.users)
+            {
+                if(i.getemail().equals(name.getText())&&i.getpass().equals(password.getText()))
+                {
+                    s.logedin=i;
+                    this.dispose();
+                }
+            }
+            if(this.isVisible()) 
+            JOptionPane.showMessageDialog(null, "wrong username or password", "Error",JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_hActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,16 +203,14 @@ public class mainfram extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JButton h;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField name;
+    private javax.swing.JPasswordField password;
     private javax.swing.JButton signup;
-    private javax.swing.JPasswordField x;
-    private javax.swing.JTextField y;
-    private javax.swing.JCheckBox z;
     // End of variables declaration//GEN-END:variables
 }
