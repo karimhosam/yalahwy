@@ -157,6 +157,8 @@ public class mainfram extends javax.swing.JFrame {
                 if(i.getemail().equals(name.getText())&&i.getpass().equals(password.getText()))
                 {
                     s.logedin=i;
+                    Isearch next=new Isearch();
+                    next.show();
                     this.dispose();
                 }
             }

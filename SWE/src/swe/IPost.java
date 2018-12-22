@@ -8,6 +8,9 @@ package swe;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -350,13 +353,20 @@ public class IPost extends javax.swing.JFrame {
         }
         else
         {
+            
             post.setid();
             post.post_details.setname(name.getText());
             post.post_details.setdate(finddate.getDate());
             post.post_details.setcategory((String) cat.getSelectedItem());
             post.post_details.setphoto(f.toString());
-            post.founder=main.logedin;
+            post.founder=main.logedin.getemail();
             main.posts.add(post);
+            try {
+                post.setdata();
+            } catch (IOException ex) {
+                Logger.getLogger(IPost.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Post been added Successfully", "Done!",JOptionPane.OK_OPTION);
         }
     }//GEN-LAST:event_submitActionPerformed
 
@@ -471,6 +481,7 @@ public class IPost extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "there is somthing wrong", "Error",JOptionPane.ERROR_MESSAGE);
         }
         else{
+            post=new Post();
             Question q=new Question();
             q.question=question.getText();
             String []a=new String[3];
@@ -479,6 +490,10 @@ public class IPost extends javax.swing.JFrame {
             a[2]=ans3.getText();
             q.setans(a);
             post.post_details.detalis.add(q);
+            question.setText("");
+            ans1.setText("");
+            ans2.setText("");
+            ans3.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
