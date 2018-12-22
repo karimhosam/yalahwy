@@ -50,9 +50,8 @@ public class mainfram extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        h.setBackground(new java.awt.Color(0, 0, 0));
-        h.setFont(new java.awt.Font("Tempus Sans ITC", 3, 18)); // NOI18N
-        h.setForeground(new java.awt.Color(255, 255, 255));
+        h.setBackground(new java.awt.Color(255, 153, 0));
+        h.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         h.setText("LOGIN");
         h.setBorder(new javax.swing.border.MatteBorder(null));
         h.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -64,11 +63,11 @@ public class mainfram extends javax.swing.JFrame {
         getContentPane().add(h);
         h.setBounds(310, 370, 260, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_gui8.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangepass.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(210, 270, 50, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_gender-male2-512.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_orangprofile.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(350, 50, 160, 140);
 
@@ -86,7 +85,7 @@ public class mainfram extends javax.swing.JFrame {
         getContentPane().add(name);
         name.setBounds(270, 220, 360, 40);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1images.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1rsz_orangprofile.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(210, 220, 50, 40);
 
@@ -96,15 +95,16 @@ public class mainfram extends javax.swing.JFrame {
         getContentPane().add(password);
         password.setBounds(270, 270, 360, 40);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText(" Don't have an account ?");
         jLabel4.setToolTipText("");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(280, 430, 180, 30);
+        jLabel4.setBounds(310, 430, 180, 30);
 
-        signup.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
-        signup.setForeground(new java.awt.Color(255, 255, 255));
+        signup.setBackground(new java.awt.Color(255, 153, 51));
+        signup.setFont(new java.awt.Font("Yu Gothic UI", 1, 15)); // NOI18N
+        signup.setForeground(new java.awt.Color(255, 153, 0));
         signup.setText("Sign up Now !");
         signup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signup.addActionListener(new java.awt.event.ActionListener() {
@@ -113,14 +113,14 @@ public class mainfram extends javax.swing.JFrame {
             }
         });
         getContentPane().add(signup);
-        signup.setBounds(450, 430, 120, 30);
+        signup.setBounds(440, 430, 160, 30);
 
         back.setForeground(new java.awt.Color(255, 255, 255));
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_background1.jpg"))); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/mainframbackground.jpg"))); // NOI18N
         back.setText("forget your password ?");
         back.setPreferredSize(new java.awt.Dimension(810, 530));
         getContentPane().add(back);
-        back.setBounds(0, 0, 810, 540);
+        back.setBounds(0, -10, 810, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,8 +156,9 @@ public class mainfram extends javax.swing.JFrame {
             {
                 if(i.getemail().equals(name.getText())&&i.getpass().equals(password.getText()))
                 {
+                    
                     s.logedin=i;
-                    Isearch next=new Isearch();
+                    chooserfram next=new chooserfram();
                     next.show();
                     this.dispose();
                 }

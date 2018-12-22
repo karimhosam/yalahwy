@@ -5,6 +5,7 @@
  */
 package swe;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
@@ -30,6 +31,7 @@ public class Isearch extends javax.swing.JFrame {
      */
     public Isearch() {
         initComponents();
+        resultpane.setBackground(new Color(0,0,0,0));
         resultpane.setLayout(new BoxLayout(resultpane, BoxLayout.Y_AXIS));
     }
 
@@ -45,20 +47,37 @@ public class Isearch extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         cat = new javax.swing.JComboBox<>();
-        finddate = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        finddate = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         resultpane = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("YALAHWY.exe");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mobiles", "Keys", "Wallets", "Accsesories", "Others" }));
+        getContentPane().add(cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 570, 40));
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 51));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 106, 40));
 
         finddate.setDateFormatString("dd/MM/yyyy");
         finddate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -83,59 +102,43 @@ public class Isearch extends javax.swing.JFrame {
                 finddateMouseEntered(evt);
             }
         });
+        getContentPane().add(finddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 70, 570, 40));
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_open-in-browser-icon-11-256.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
+
+        resultpane.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout resultpaneLayout = new javax.swing.GroupLayout(resultpane);
         resultpane.setLayout(resultpaneLayout);
         resultpaneLayout.setHorizontalGroup(
             resultpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 746, Short.MAX_VALUE)
         );
         resultpaneLayout.setVerticalGroup(
             resultpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 218, Short.MAX_VALUE)
+            .addGap(0, 427, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(resultpane);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(finddate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cat, 0, 435, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(finddate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 155, 750, 350));
+
+        jButton2.setBackground(new java.awt.Color(255, 153, 51));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 106, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_7_calendar_date_year_event_schedule_link_holiday-512.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/mainframbackground.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -6, 810, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,11 +201,19 @@ public class Isearch extends javax.swing.JFrame {
                         resultpane.add(x);
                         buttons.add(x);
                         labels.add(l);
+                        resultpane.revalidate();
+                        resultpane.repaint();
                     }
                 }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        chooserfram next= new chooserfram();
+        next.show();
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,6 +254,10 @@ public class Isearch extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cat;
     private com.toedter.calendar.JDateChooser finddate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
