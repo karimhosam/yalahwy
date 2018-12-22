@@ -19,16 +19,18 @@ public class ISignup extends javax.swing.JFrame {
      */SWE main=new SWE();
     public ISignup() {
         initComponents();
-        a.setBackground(new Color(0,0,0,80));
-        b.setBackground(new Color(0,0,0,80));
-        c.setBackground(new Color(0,0,0,80));
-        d.setBackground(new Color(0,0,0,80));
-        e.setBackground(new Color(0,0,0,80));
+        name.setBackground(new Color(0,0,0,80));
+        email.setBackground(new Color(0,0,0,80));
+        pass.setBackground(new Color(0,0,0,80));
+        pass2.setBackground(new Color(0,0,0,80));
+        num.setBackground(new Color(0,0,0,80));
         email_label.setVisible(false);
         phone_label.setVisible(false);
         pass_label.setVisible(false); 
-        name_label1.setVisible(false);
-             
+        name_label.setVisible(false);
+        pass.setEchoChar((char)0);
+        pass2.setEchoChar((char)0);     
+        check.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -41,15 +43,15 @@ public class ISignup extends javax.swing.JFrame {
     private void initComponents() {
 
         submit = new javax.swing.JButton();
-        a = new javax.swing.JTextField();
-        b = new javax.swing.JTextField();
-        e = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        num = new javax.swing.JTextField();
         phone_label = new javax.swing.JLabel();
-        email_label = new javax.swing.JLabel();
+        name_label = new javax.swing.JLabel();
         check = new javax.swing.JCheckBox();
         pass_label = new javax.swing.JLabel();
-        d = new javax.swing.JPasswordField();
-        c = new javax.swing.JPasswordField();
+        pass2 = new javax.swing.JPasswordField();
+        pass = new javax.swing.JPasswordField();
         name_label1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -62,10 +64,12 @@ public class ISignup extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        email_label = new javax.swing.JLabel();
+        back = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("YALAHWY.exe");
         setPreferredSize(new java.awt.Dimension(810, 650));
         getContentPane().setLayout(null);
 
@@ -78,73 +82,84 @@ public class ISignup extends javax.swing.JFrame {
             }
         });
         getContentPane().add(submit);
-        submit.setBounds(210, 520, 350, 40);
+        submit.setBounds(130, 520, 240, 40);
 
-        a.setText("name");
-        a.addFocusListener(new java.awt.event.FocusAdapter() {
+        name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(153, 153, 153));
+        name.setText("Enter Name");
+        name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                aFocusGained(evt);
+                nameFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                aFocusLost(evt);
+                nameFocusLost(evt);
             }
         });
-        a.addActionListener(new java.awt.event.ActionListener() {
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
-        getContentPane().add(a);
-        a.setBounds(210, 140, 340, 40);
+        getContentPane().add(name);
+        name.setBounds(210, 140, 340, 40);
 
-        b.addFocusListener(new java.awt.event.FocusAdapter() {
+        email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        email.setForeground(new java.awt.Color(153, 153, 153));
+        email.setText("Example@example.com");
+        email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                bFocusGained(evt);
+                emailFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                bFocusLost(evt);
+                emailFocusLost(evt);
             }
         });
-        b.addActionListener(new java.awt.event.ActionListener() {
+        email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bActionPerformed(evt);
+                emailActionPerformed(evt);
             }
         });
-        getContentPane().add(b);
-        b.setBounds(210, 210, 340, 40);
+        getContentPane().add(email);
+        email.setBounds(210, 210, 340, 40);
 
-        e.addFocusListener(new java.awt.event.FocusAdapter() {
+        num.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        num.setForeground(new java.awt.Color(153, 153, 153));
+        num.setText("Enter Your Phone Number");
+        num.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                eFocusGained(evt);
+                numFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                eFocusLost(evt);
+                numFocusLost(evt);
             }
         });
-        e.addActionListener(new java.awt.event.ActionListener() {
+        num.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eActionPerformed(evt);
+                numActionPerformed(evt);
             }
         });
-        e.addKeyListener(new java.awt.event.KeyAdapter() {
+        num.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                eKeyTyped(evt);
+                numKeyTyped(evt);
             }
         });
-        getContentPane().add(e);
-        e.setBounds(210, 420, 340, 40);
+        getContentPane().add(num);
+        num.setBounds(210, 420, 340, 40);
 
+        phone_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         phone_label.setForeground(new java.awt.Color(255, 51, 51));
         phone_label.setText("wrong number");
         getContentPane().add(phone_label);
-        phone_label.setBounds(570, 420, 69, 30);
+        phone_label.setBounds(570, 420, 100, 30);
 
-        email_label.setForeground(new java.awt.Color(255, 51, 51));
-        email_label.setText("wrong email");
-        getContentPane().add(email_label);
-        email_label.setBounds(590, 210, 100, 40);
+        name_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        name_label.setForeground(new java.awt.Color(255, 51, 51));
+        name_label.setText("Enter a Name");
+        getContentPane().add(name_label);
+        name_label.setBounds(580, 140, 100, 40);
 
-        check.setFont(new java.awt.Font("Yu Gothic UI", 3, 12)); // NOI18N
+        check.setFont(new java.awt.Font("Yu Gothic UI", 3, 14)); // NOI18N
+        check.setForeground(new java.awt.Color(255, 255, 255));
         check.setText("show password");
         check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,31 +169,44 @@ public class ISignup extends javax.swing.JFrame {
         getContentPane().add(check);
         check.setBounds(580, 280, 130, 40);
 
+        pass_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pass_label.setForeground(new java.awt.Color(255, 0, 51));
         pass_label.setText("password does not match");
         getContentPane().add(pass_label);
-        pass_label.setBounds(570, 350, 123, 30);
+        pass_label.setBounds(570, 350, 170, 30);
 
-        d.setText("jPasswordField1");
-        d.addFocusListener(new java.awt.event.FocusAdapter() {
+        pass2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pass2.setForeground(new java.awt.Color(153, 153, 153));
+        pass2.setText("Confirm Password");
+        pass2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                dFocusGained(evt);
+                pass2FocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                dFocusLost(evt);
+                pass2FocusLost(evt);
             }
         });
-        d.addActionListener(new java.awt.event.ActionListener() {
+        pass2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dActionPerformed(evt);
+                pass2ActionPerformed(evt);
             }
         });
-        getContentPane().add(d);
-        d.setBounds(210, 350, 340, 40);
+        getContentPane().add(pass2);
+        pass2.setBounds(210, 350, 340, 40);
 
-        c.setText("jPasswordField2");
-        getContentPane().add(c);
-        c.setBounds(210, 280, 340, 40);
+        pass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pass.setForeground(new java.awt.Color(153, 153, 153));
+        pass.setText("Enter Password");
+        pass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passFocusLost(evt);
+            }
+        });
+        getContentPane().add(pass);
+        pass.setBounds(210, 280, 340, 40);
 
         name_label1.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
         name_label1.setForeground(new java.awt.Color(204, 204, 204));
@@ -245,134 +273,211 @@ public class ISignup extends javax.swing.JFrame {
         getContentPane().add(jLabel12);
         jLabel12.setBounds(250, 80, 450, 16);
 
-        jCheckBox1.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
-        jCheckBox1.setText("I agree with the Terms & Condations.");
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(210, 470, 290, 25);
+        email_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        email_label.setForeground(new java.awt.Color(255, 51, 51));
+        email_label.setText("wrong email");
+        getContentPane().add(email_label);
+        email_label.setBounds(580, 200, 100, 40);
 
-        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_background1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, -10, 820, 650);
+        back.setBackground(new java.awt.Color(0, 0, 0));
+        back.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        back.setText("Back !");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back);
+        back.setBounds(430, 520, 240, 40);
+
+        background.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        background.setForeground(new java.awt.Color(204, 204, 204));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_background1.jpg"))); // NOI18N
+        getContentPane().add(background);
+        background.setBounds(-10, -10, 820, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        if(pass_label.isVisible()||email_label.isVisible()||phone_label.isVisible()||name_label1.isVisible())
+        if(pass.getText().equals("Enter Password")||pass2.getText().equals("Confirm Password")||name_label.isVisible()||num.getText().equals("Enter Your Phone Number")||email.getText().equals("Example@example.com"))
         {
             JOptionPane.showMessageDialog(null, "there is somthing wrong", "Error",JOptionPane.ERROR_MESSAGE);
         }
         else
         {
             Signup sign=new Signup();
-            sign.user.setname(a.getText());
-            sign.user.setemail(b.getText());
-            sign.user.setpass(c.getText());
-            sign.user.setphone(Integer.parseInt(e.getText()));
+            sign.user.setname(name.getText());
+            sign.user.setemail(email.getText());
+            sign.user.setpass(pass.getText());
+            sign.user.setphone(Integer.parseInt(num.getText()));
          
-            if(sign.checkvalid(main.users))
+            if(sign.checkvalid())
             {
-                sign.setdata(main.users);
+                sign.setdata();
+                mainfram next=new mainfram();
+                next.show();
+                this.dispose();
             }
         }
     }//GEN-LAST:event_submitActionPerformed
 
-    private void bFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bFocusLost
-       int cnt=0;
-        int idxdot=0;
-        int idxat=0;
-        for(int i=0;i< b.getText().length();i++)
-        {
-            if(b.getText().charAt(i)=='@')
-            {    
-                idxat=i;
-                cnt++;
+    private void emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusLost
+        if (email.getText().equals("")){
+            email.setText("Example@example.com");
+            email_label.setVisible(true);
+            email.setForeground(new Color(153,153,153));
+        }
+        else {
+            int cnt=0;
+            int idxdot=0;
+            int idxat=0;
+            for(int i=0;i< email.getText().length();i++)
+            {
+                if(email.getText().charAt(i)=='@')
+                {    
+                    idxat=i;
+                    cnt++;
+                }
+                if(email.getText().charAt(i)=='.')
+                    idxdot=i;
             }
-            if(b.getText().charAt(i)=='.')
-                idxdot=i;
-        }
-        
-        if(cnt!=1||idxat>idxdot)
-        {
-           email_label.setVisible(true);
-        }
-        else
-            email_label.setVisible(false);
-    }//GEN-LAST:event_bFocusLost
 
-    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+            if(cnt!=1||idxat>=idxdot-1||idxdot==email.getText().length()-1)
+            {
+               email_label.setVisible(true);
+            }
+            else
+               email_label.setVisible(false);
+        }
+    }//GEN-LAST:event_emailFocusLost
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_bActionPerformed
+    }//GEN-LAST:event_emailActionPerformed
 
-    private void bFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bFocusGained
-        // TODO add your handling code here:
+    private void emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusGained
         email_label.setVisible(false);
-    }//GEN-LAST:event_bFocusGained
+        if (email.getText().equals("Example@example.com")){
+            email.setText("");
+            email.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_emailFocusGained
 
-    private void eFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eFocusLost
-        // TODO add your handling code here:
-        if(e.getText().length()!=11)
+    private void numFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numFocusLost
+        if (num.getText().equals("")){
+            num.setText("Enter Your Phone Number");
+            num.setForeground(new Color(153,153,153));
+            phone_label.setVisible(true);
+        }
+        if(num.getText().length()!=11)
         {
             phone_label.setVisible(true);
         }
-    }//GEN-LAST:event_eFocusLost
+    }//GEN-LAST:event_numFocusLost
 
-    private void eFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eFocusGained
+    private void numFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numFocusGained
         phone_label.setVisible(false);
-    }//GEN-LAST:event_eFocusGained
+        if (num.getText().equals("Enter Your Phone Number")){
+            num.setText("");
+            num.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_numFocusGained
 
-    private void eKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eKeyTyped
+    private void numKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numKeyTyped
         char c=evt.getKeyChar();
         if((!(Character.isDigit(c)))||c==KeyEvent.VK_BACK_SPACE||c==KeyEvent.VK_DELETE)
           evt.consume();
-    }//GEN-LAST:event_eKeyTyped
+    }//GEN-LAST:event_numKeyTyped
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
         if (check.isSelected())
         {
-            c.setEchoChar((char)0);
-            d.setEchoChar((char)0);
+            pass.setEchoChar((char)0);
+            pass2.setEchoChar((char)0);
         }
         else
         {
-            c.setEchoChar('*');
-            d.setEchoChar('*');
+            if (!pass.getText().equals("Enter Password"))
+                pass.setEchoChar('*');
+            if (!pass2.getText().equals("Confirm Password"))
+                pass2.setEchoChar('*');
         }
     }//GEN-LAST:event_checkActionPerformed
 
-    private void dFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dFocusLost
-        if(!d.getText().equals(c.getText()))
+    private void pass2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pass2FocusLost
+        if(!pass2.getText().equals(pass.getText()))
             pass_label.setVisible(true);
-    }//GEN-LAST:event_dFocusLost
+        if (pass2.getText().equals("")){
+            pass2.setEchoChar((char)0);
+            pass2.setText("Confirm Password");
+            pass2.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_pass2FocusLost
 
-    private void dFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dFocusGained
+    private void pass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pass2FocusGained
+         pass_label.setVisible(false);
+         if (pass2.getText().equals("Confirm Password")){
+             pass2.setText("");
+             pass2.setEchoChar('*');
+             pass2.setForeground(Color.white);
+         }
+    }//GEN-LAST:event_pass2FocusGained
+
+    private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
+        if(name.getText().equals("")){
+            name_label.setVisible(true);
+            name.setForeground(new Color(153,153,153));
+            name.setText("Enter Name");
+        }
+    }//GEN-LAST:event_nameFocusLost
+
+    private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
+        name_label.setVisible(false);
+        if (name.getText().equals("Enter Name")){
+            name.setText("");
+            name.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_nameFocusGained
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
+
+    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numActionPerformed
+
+    private void pass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pass2ActionPerformed
+
+    private void passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusGained
         pass_label.setVisible(false);
-    }//GEN-LAST:event_dFocusGained
+        if (pass.getText().equals("Enter Password")){
+            pass.setText("");
+            pass.setEchoChar('*');
+            pass.setForeground(Color.white);
+        }
+    }//GEN-LAST:event_passFocusGained
 
-    private void aFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aFocusLost
-        if(a.getText().equals(""))
-            name_label1.setVisible(true);
-    }//GEN-LAST:event_aFocusLost
+    private void passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusLost
+        if (pass.getText().equals("")){
+            pass.setEchoChar((char)0);
+            pass.setText("Enter Password");
+            pass_label.setVisible(true);
+            pass.setForeground(new Color(153,153,153));
+        }
+        if (!pass.getText().equals(pass2.getText()))
+            pass_label.setVisible(true);
+    }//GEN-LAST:event_passFocusLost
 
-    private void aFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aFocusGained
-        name_label1.setVisible(false);
-    }//GEN-LAST:event_aFocusGained
-
-    private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aActionPerformed
-
-    private void eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eActionPerformed
-
-    private void dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        mainfram next = new mainfram();
+        next.show();
+        this.dispose();
+    }//GEN-LAST:event_backActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -408,15 +513,11 @@ public class ISignup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField a;
-    private javax.swing.JTextField b;
-    private javax.swing.JPasswordField c;
+    private javax.swing.JButton back;
+    private javax.swing.JLabel background;
     private javax.swing.JCheckBox check;
-    private javax.swing.JPasswordField d;
-    private javax.swing.JTextField e;
+    private javax.swing.JTextField email;
     private javax.swing.JLabel email_label;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -428,7 +529,12 @@ public class ISignup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField name;
+    private javax.swing.JLabel name_label;
     private javax.swing.JLabel name_label1;
+    private javax.swing.JTextField num;
+    private javax.swing.JPasswordField pass;
+    private javax.swing.JPasswordField pass2;
     private javax.swing.JLabel pass_label;
     private javax.swing.JLabel phone_label;
     private javax.swing.JButton submit;
