@@ -5,12 +5,15 @@
  */
 package swe;
 
+import java.util.Date;
+
 /**
  *
  * @author karim
  */
 public class Search {
-    String categorey;
+    private String categorey;
+    public Date losedate;
     void setcat(String c){categorey=c;}
     String getcat(){return categorey;}
 }

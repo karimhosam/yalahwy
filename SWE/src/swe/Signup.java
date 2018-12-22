@@ -5,14 +5,38 @@
  */
 package swe;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author karim
  */
 public class Signup {
-    public static User user=new User();
+    public User user=new User();
     public Signup(){}
-    void setdata(){SWE.users.add(user);};
+    void setdata() throws IOException{
+    SWE.users.add(user);
+    String str ="";
+    for(User i:SWE.users)
+    {
+        str+=i.getname();
+        str+="|";
+        str+=i.getemail();
+        str+="|";
+        str+=i.getpass();
+        str+="|";
+        str+=Integer.toString(i.getphone());
+        str+="\n";
+    }
+    BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
+    writer.write(str);
+     
+    writer.close();
+    
+    
+    }
     public boolean checkvalid(){
         for(User i:SWE.users)
         {

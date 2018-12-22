@@ -7,6 +7,9 @@ package swe;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -314,7 +317,11 @@ public class ISignup extends javax.swing.JFrame {
          
             if(sign.checkvalid())
             {
-                sign.setdata();
+                try {
+                    sign.setdata();
+                } catch (IOException ex) {
+                    Logger.getLogger(ISignup.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 mainfram next=new mainfram();
                 next.show();
                 this.dispose();

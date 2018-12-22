@@ -18,7 +18,7 @@ public class Item {
     String category;
     String photo;
     Date date;
-    public ArrayList<Question> detalis;
+    public ArrayList<Question> detalis= new ArrayList<>();
     void setname(String n){name=n;}
     void setcategory (String e){category=e;}
     void setphoto(String p){photo=p;}
