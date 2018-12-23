@@ -139,7 +139,7 @@ public class chooserfram extends javax.swing.JFrame {
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         this.dispose();
-        mainfram back= new mainfram();
+        Ilogin back= new Ilogin();
         back.show();
     }//GEN-LAST:event_logoutActionPerformed
 
