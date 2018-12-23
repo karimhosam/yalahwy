@@ -16,7 +16,7 @@ import java.io.IOException;
 public class Signup {
     public User user=new User();
     public Signup(){}
-    void setdata() throws IOException{
+    public void setdata() throws IOException{
     SWE.users.add(user);
      BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
     for(User i:SWE.users)

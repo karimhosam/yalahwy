@@ -78,7 +78,7 @@ public class SWE {
             users.add(po);
         }
         blocked = read("blocked.txt");
-        mainfram.main(args);
+        Ilogin.main(args);
         
     }
     

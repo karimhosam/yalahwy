@@ -300,7 +300,7 @@ public class ISignup extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(ISignup.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                mainfram next=new mainfram();
+                Ilogin next=new Ilogin();
                 next.show();
                 this.dispose();
             }
@@ -462,7 +462,7 @@ public class ISignup extends javax.swing.JFrame {
     }//GEN-LAST:event_passFocusLost
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        mainfram next = new mainfram();
+        Ilogin next = new Ilogin();
         next.show();
         this.dispose();
     }//GEN-LAST:event_backActionPerformed

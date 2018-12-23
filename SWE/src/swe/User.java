@@ -10,11 +10,11 @@ package swe;
  * @author karim
  */
 public class User {
-    String name;
-    String email;
-    String password;
-    int phone_num;
-    int count=0;
+    private String name;
+    private String email;
+    private String password;
+    private int phone_num;
+    public int count=0;
     public User(){}
     public void setname(String n){name=n;}
     public void setemail (String e){email=e;}
@@ -24,5 +24,4 @@ public class User {
     public String getemail (){return email;}
     public String getpass(){return password;}
     public int getphone(){return phone_num;}
-    
 }
