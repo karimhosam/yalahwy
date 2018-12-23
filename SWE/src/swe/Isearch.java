@@ -7,6 +7,8 @@ package swe;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -19,11 +21,10 @@ import javax.swing.JTextArea;
  *
  * @author Chaos
  */
-public class Isearch extends javax.swing.JFrame {
+public class Isearch extends javax.swing.JFrame implements ActionListener{
 
     Search newSearch = new Search();
     ArrayList<JButton> buttons = new ArrayList<>();
-    ArrayList<JTextArea> labels = new ArrayList<>();
     
 
     /**
@@ -31,7 +32,6 @@ public class Isearch extends javax.swing.JFrame {
      */
     public Isearch() {
         initComponents();
-        resultpane.setBackground(new Color(0,0,0,0));
         resultpane.setLayout(new BoxLayout(resultpane, BoxLayout.Y_AXIS));
     }
 
@@ -107,7 +107,7 @@ public class Isearch extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_open-in-browser-icon-11-256.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
 
-        resultpane.setBackground(new java.awt.Color(255, 255, 255));
+        resultpane.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout resultpaneLayout = new javax.swing.GroupLayout(resultpane);
         resultpane.setLayout(resultpaneLayout);
@@ -164,6 +164,11 @@ public class Isearch extends javax.swing.JFrame {
     }//GEN-LAST:event_finddateMouseEntered
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        resultpane.removeAll();
+        resultpane.revalidate();
+        resultpane.repaint();
+        buttons.clear();
+        
         if (finddate.getDate() == null) {
             JOptionPane.showMessageDialog(null, "there is somthing wrong", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -186,7 +191,6 @@ public class Isearch extends javax.swing.JFrame {
                         }
                     }
                     if (lock == 1) {
-                        System.out.println(SWE.posts.get(i).post_details.getname()); 
                         JButton x = new JButton();
                         JTextArea l= new JTextArea();
                         l.setText(("Name: " + SWE.posts.get(i).post_details.getname()+"\n"
@@ -195,16 +199,21 @@ public class Isearch extends javax.swing.JFrame {
                                 (SWE.posts.get(i).post_details.getdate().getYear()+1900)+"\n"
                                 + "Catergory : " + SWE.posts.get(i).post_details.getcategory()));
                         l.setEditable(false);
-                        
                         x.setText("More Details");
+                        Integer xx=SWE.posts.get(i).getid();
+                        x.setActionCommand(xx.toString());
+                        x.addActionListener(this);
+                        x.setBackground(Color.orange);
                         resultpane.add(l);
                         resultpane.add(x);
                         buttons.add(x);
-                        labels.add(l);
                         resultpane.revalidate();
                         resultpane.repaint();
                     }
                 }
+            }
+            if (buttons.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Sorry But No Resutls Were Found", "Sorry", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -263,4 +272,18 @@ public class Isearch extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel resultpane;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String action = e.getActionCommand();
+        for (int i=0;i<buttons.size();i++){
+            if (action.equals(buttons.get(i).getActionCommand())){
+                Iitem newitem = new Iitem(Integer.parseInt(buttons.get(i).getActionCommand()));
+                newitem.show();
+                this.dispose();
+                break;
+            }
+        }
+    }
+
 }

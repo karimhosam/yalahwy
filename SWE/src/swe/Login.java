@@ -20,6 +20,11 @@ public class Login {
         {
             if((i.getemail().equals(email))&&i.getpass().equals(password))
             {
+                for (int j=0;j<SWE.blocked.size();j++){
+                    if (i.getemail().equals(SWE.blocked.get(j))){
+                        return false;
+                    }
+                }
                 return true;
             }
         }
