@@ -21,7 +21,9 @@ public class chooserfram extends javax.swing.JFrame {
         initComponents();
        
         a.setBackground(new Color(0,0,0,0));
-       b.setBackground(new Color(0,0,0,0));
+        b.setBackground(new Color(0,0,0,0));
+        c.setBackground(new Color(0,0,0,0));
+        logout.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -38,6 +40,9 @@ public class chooserfram extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
+        c = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +63,7 @@ public class chooserfram extends javax.swing.JFrame {
                 bActionPerformed(evt);
             }
         });
-        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 230, 160));
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 230, 160));
 
         a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_244573.png"))); // NOI18N
         a.setText("jButton2");
@@ -68,7 +73,7 @@ public class chooserfram extends javax.swing.JFrame {
                 aActionPerformed(evt);
             }
         });
-        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 220, 160));
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 220, 160));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
@@ -78,12 +83,36 @@ public class chooserfram extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Founder");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 150, 80));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 150, 80));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel3.setText("Searcher");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 160, 70));
+        jLabel3.setText("My Posts");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 160, 70));
+
+        logout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 153, 0));
+        logout.setText("Log out...");
+        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
+
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_2posts.png"))); // NOI18N
+        c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cActionPerformed(evt);
+            }
+        });
+        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 220, 160));
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel5.setText("Searcher");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 160, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/mainframbackground.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
@@ -107,6 +136,18 @@ public class chooserfram extends javax.swing.JFrame {
        next.show();
        this.dispose();
     }//GEN-LAST:event_aActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        this.dispose();
+        mainfram back= new mainfram();
+        back.show();
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
+       IModify next= new IModify();
+       next.show();
+       this.dispose();
+    }//GEN-LAST:event_cActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +188,12 @@ public class chooserfram extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton a;
     private javax.swing.JButton b;
+    private javax.swing.JButton c;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton logout;
     // End of variables declaration//GEN-END:variables
 }

@@ -152,20 +152,14 @@ public class mainfram extends javax.swing.JFrame {
         }
         else
         {
-            for(User i:s.users)
-            {
-                if(i.getemail().equals(name.getText())&&i.getpass().equals(password.getText()))
-                {
-                    
-                    s.logedin=i;
+            Login l = new Login();
+            l.email=name.getText();
+            l.password=password.getText();
+            if(l.checkvalid()){
                     chooserfram next=new chooserfram();
                     next.show();
                     this.dispose();
-                }
             }
-            if(this.isVisible()) 
-            JOptionPane.showMessageDialog(null, "wrong username or password", "Error",JOptionPane.ERROR_MESSAGE);
-
         }
     }//GEN-LAST:event_hActionPerformed
 
