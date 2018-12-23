@@ -5,6 +5,7 @@
  */
 package swe;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,7 @@ public class Isearch extends javax.swing.JFrame implements ActionListener{
     public Isearch() {
         initComponents();
         resultpane.setLayout(new BoxLayout(resultpane, BoxLayout.Y_AXIS));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) finddate.getDateEditor();
     }
 
     /**
@@ -107,7 +109,7 @@ public class Isearch extends javax.swing.JFrame implements ActionListener{
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_open-in-browser-icon-11-256.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
 
-        resultpane.setBackground(new java.awt.Color(204, 204, 204));
+        resultpane.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout resultpaneLayout = new javax.swing.GroupLayout(resultpane);
         resultpane.setLayout(resultpaneLayout);

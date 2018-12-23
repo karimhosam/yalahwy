@@ -6,6 +6,7 @@
 package swe;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,21 +14,23 @@ import java.util.ArrayList;
  */
 public class Login {
     public String email;
-    public String password;
-    ArrayList<User> s= new ArrayList<>(); 
+    public String password; 
     boolean checkvalid(){
-        for(User i:s)
+        for(User i:SWE.users)
         {
-            if((i.getemail().equals(email))&&i.getpass().equals(password))
+            if((i.getemail().equals(this.email))&&i.getpass().equals(this.password))
             {
                 for (int j=0;j<SWE.blocked.size();j++){
-                    if (i.getemail().equals(SWE.blocked.get(j))){
+                    if (this.email.equals(SWE.blocked.get(j))){
+                        JOptionPane.showMessageDialog(null, "This Account Was Blocked", "Error",JOptionPane.ERROR_MESSAGE);
                         return false;
                     }
                 }
+                SWE.logedin=i;
                 return true;
             }
         }
+        JOptionPane.showMessageDialog(null, "wrong username or password", "Error",JOptionPane.ERROR_MESSAGE);
         return false;
     }
     

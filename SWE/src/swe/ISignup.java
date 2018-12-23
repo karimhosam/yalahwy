@@ -304,6 +304,9 @@ public class ISignup extends javax.swing.JFrame {
                 next.show();
                 this.dispose();
             }
+            else{
+                JOptionPane.showMessageDialog(this, "This Email is already used", "Wait!",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_submitActionPerformed
 

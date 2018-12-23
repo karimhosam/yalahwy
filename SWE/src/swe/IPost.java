@@ -7,12 +7,14 @@ package swe;
 
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
+import java.awt.image.ImageFilter;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -28,13 +30,13 @@ public class IPost extends javax.swing.JFrame {
     File f=null;
     public IPost() {
         initComponents();
-         name.setBackground(new Color(0,0,0,80));
-         photodic.setBackground(new Color(0,0,0,80));
-         finddate.setBackground(new Color(0,0,0,80));
-         question.setBackground(new Color(0,0,0,80));
-         ans1.setBackground(new Color(0,0,0,80));
-         ans2.setBackground(new Color(0,0,0,80));
-         ans3.setBackground(new Color(0,0,0,80));
+        name.setBackground(new Color(0,0,0,80));
+        photodic.setBackground(new Color(0,0,0,80));
+        finddate.setBackground(new Color(0,0,0,80));
+        question.setBackground(new Color(0,0,0,80));
+        ans1.setBackground(new Color(0,0,0,80));
+        ans2.setBackground(new Color(0,0,0,80));
+        ans3.setBackground(new Color(0,0,0,80));
         name_label.setVisible(false);
         pic_label.setVisible(false);
         date_label.setVisible(false);
@@ -75,7 +77,7 @@ public class IPost extends javax.swing.JFrame {
         answer2 = new javax.swing.JLabel();
         submit1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        title_la = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -279,10 +281,10 @@ public class IPost extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 200, 30));
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 50)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel2.setText("Make a Post ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 510, 60));
+        title_la.setFont(new java.awt.Font("Yu Gothic UI", 1, 50)); // NOI18N
+        title_la.setForeground(new java.awt.Color(255, 153, 0));
+        title_la.setText("Make a Post ");
+        getContentPane().add(title_la, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, 60));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/swe/pics/rsz_1rsz_orangprofile.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -325,7 +327,8 @@ public class IPost extends javax.swing.JFrame {
 
     private void picdicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_picdicActionPerformed
         JFileChooser pic=new JFileChooser();
-        
+        pic.addChoosableFileFilter(new FileNameExtensionFilter("Image Files", "jpg", "png", "tif"));
+        pic.setAcceptAllFileFilterUsed(false);
         if(pic.showOpenDialog(null)==0)
         {
             pic_label.setVisible(false);
@@ -551,7 +554,6 @@ public class IPost extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -568,5 +570,6 @@ public class IPost extends javax.swing.JFrame {
     private javax.swing.JLabel question_label;
     private javax.swing.JButton submit;
     private javax.swing.JButton submit1;
+    private javax.swing.JLabel title_la;
     // End of variables declaration//GEN-END:variables
 }
