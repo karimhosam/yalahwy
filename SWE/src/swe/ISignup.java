@@ -296,6 +296,7 @@ public class ISignup extends javax.swing.JFrame {
             {
                 try {
                     sign.setdata();
+                    JOptionPane.showMessageDialog(this, "Signed up Successfully", "Done!",JOptionPane.PLAIN_MESSAGE);
                 } catch (IOException ex) {
                     Logger.getLogger(ISignup.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -327,7 +328,7 @@ public class ISignup extends javax.swing.JFrame {
                     idxdot=i;
             }
 
-            if(cnt!=1||idxat>=idxdot-1||idxdot==email.getText().length()-1)
+            if(cnt!=1||idxat>=idxdot-1||idxdot==email.getText().length()-1||idxat==0)
             {
                email_label.setVisible(true);
             }

@@ -18,9 +18,10 @@ public class Signup {
     public Signup(){}
     void setdata() throws IOException{
     SWE.users.add(user);
-    String str ="";
+     BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
     for(User i:SWE.users)
     {
+        String str ="";
         str+=i.getname();
         str+="|";
         str+=i.getemail();
@@ -28,15 +29,11 @@ public class Signup {
         str+=i.getpass();
         str+="|";
         str+=Integer.toString(i.getphone());
-        str+="\n";
-    }
-    BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt"));
-    writer.write(str);
-     
+         writer.write(str);
+         writer.newLine();
+    }  
     writer.close();
-    
-    
-    }
+ }
     public boolean checkvalid(){
         for(User i:SWE.users)
         {

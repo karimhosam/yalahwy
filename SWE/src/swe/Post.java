@@ -28,7 +28,6 @@ public class Post {
         String str ="";
         for(Post i:SWE.posts)
         {   
-            System.out.println(i.post_details.getname());
             str+=i.post_details.getname();
             str+="|";
             str+=i.post_details.getcategory();
@@ -38,6 +37,7 @@ public class Post {
             str+=i.post_details.getdate().getDate();
             str+="/";
             str+=i.post_details.getdate().getMonth()+1;
+            str+="/";
             str+=i.post_details.getdate().getYear()+1900;
             str+="|";
             str+=i.founder;

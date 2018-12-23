@@ -92,7 +92,7 @@ public class IPost extends javax.swing.JFrame {
 
         name.setBackground(new java.awt.Color(0, 0, 0));
         name.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        name.setForeground(new java.awt.Color(255, 255, 255));
+        name.setForeground(new java.awt.Color(153, 153, 153));
         name.setText("Enter Name");
         name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -125,6 +125,7 @@ public class IPost extends javax.swing.JFrame {
         getContentPane().add(picdic, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 40));
 
         photodic.setEditable(false);
+        photodic.setForeground(new java.awt.Color(255, 153, 0));
         photodic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 photodicActionPerformed(evt);
@@ -185,7 +186,7 @@ public class IPost extends javax.swing.JFrame {
         getContentPane().add(date_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
 
         question.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        question.setForeground(new java.awt.Color(255, 255, 255));
+        question.setForeground(new java.awt.Color(153, 153, 153));
         question.setText("Enter a Question");
         question.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -366,7 +367,7 @@ public class IPost extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(IPost.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "Post been added Successfully", "Done!",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Post been added Successfully", "Done!",JOptionPane.PLAIN_MESSAGE);
         }
     }//GEN-LAST:event_submitActionPerformed
 
@@ -483,12 +484,11 @@ public class IPost extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "there is somthing wrong", "Error",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            post=new Post();
             Question q=new Question();
             q.question=question.getText();
             String []a=new String[3];
             a[0]=ans1.getText();
-            a[01]=ans2.getText();
+            a[1]=ans2.getText();
             a[2]=ans3.getText();
             q.setans(a);
             post.post_details.detalis.add(q);

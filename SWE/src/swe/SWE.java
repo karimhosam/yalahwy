@@ -1,8 +1,10 @@
 package swe;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -14,6 +16,7 @@ import java.util.Locale;
 public class SWE {
     public static ArrayList<User> users=new ArrayList<>();
     public static ArrayList<Post> posts=new ArrayList<>();
+    public static ArrayList<String> blocked=new ArrayList<>();
     public static User logedin=new User();
     public static ArrayList<String> read(String file) throws IOException
     {
@@ -24,7 +27,16 @@ public class SWE {
       while ((st = br.readLine()) != null) 
         b.add(st); 
       return b;
-  } 
+    }
+    public static void writeblocked() throws IOException{
+        BufferedWriter writer = new BufferedWriter(new FileWriter("blocked.txt"));
+        for(String i:blocked)
+        {
+             writer.write(i);
+             writer.newLine();
+        }  
+        writer.close();
+    }
 
     public static void main(String[] args) throws IOException, ParseException {
         ArrayList<String>p= read("posts.txt");
@@ -65,7 +77,10 @@ public class SWE {
             po.setphone(Integer.parseInt(parts[3]));
             users.add(po);
         }
+        blocked = read("blocked.txt");
         mainfram.main(args);
+        
     }
+    
     
 }

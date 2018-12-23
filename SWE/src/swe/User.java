@@ -14,6 +14,7 @@ public class User {
     String email;
     String password;
     int phone_num;
+    int count=0;
     public User(){}
     public void setname(String n){name=n;}
     public void setemail (String e){email=e;}
